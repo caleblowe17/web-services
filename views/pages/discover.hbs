@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <title>Discover Events</title>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Discover Events</h1>
+        {{#if results.length}}
+        <div class="row">
+            {{#each results}}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{#if images.length}}{{images.[0].url}}{{else}}/default-image.jpg{{/if}}"
+                        class="card-img-top" alt="{{name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">Date and Time: {{dates.start.localDate}} {{dates.start.localTime}}</p>
+                        <a href="{{url}}" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p>No events found.</p>
+        {{/if}}
+    </div>
+
+    {{> footer}}
+    {{> title}}
+</body>
+
+</html>
